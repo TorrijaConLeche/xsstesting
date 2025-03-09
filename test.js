@@ -1,1 +1,2 @@
-<script>alert('testing XSS');</script>
+// test.js
+alert("testing XSS");
