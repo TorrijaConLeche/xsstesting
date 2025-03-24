@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+</head>
+<body>
+
+    <h2>Modificación de datos de usuario</h2>
+
+    <form action="https://www.academiacientifica.com/academia/AcademiaWeb/editarUsuario/2639" method="post">
+        <input type="hidden" name="_method" value="POST">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="data[AcademiaAlumno][nombre]" value="manuel" id="nombre" required>
+        <br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="data[AcademiaAlumno][apellidos]" value="garcia" id="apellidos" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" name="data[AcademiaAlumno][email]" value="manulop23@gmail.com" id="email" required>
+        <br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="data[AcademiaAlumno][telefono]" id="telefono">
+        <br>
+
+        <label for="no_robot">¿Cuál es el resultado de restarle dos a nueve?</label>
+        <input type="text" value="7" id="no_robot" disabled>
+        <br>
+
+        <input type="checkbox" checked disabled>
+        <label for="aviso_legal">He leído y acepto las condiciones de uso y la política de privacidad.</label>
+        <br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+
+</body>
+</html>
